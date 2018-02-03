@@ -1,22 +1,307 @@
-<!DOCTYPE html>
-<html>
-   <head></head>
-   <body>
-      <form name=”calculator”>
-         <table>
-            
-            <tr>
-              <td>
-                 <input type="text" name="display" id="display" disabled>
-              </td>
-           </tr>
-           <tr>
-              <td><input type=”button” name=”one” value=”1" onclick=”calculator.display.value += ‘1’”></td>
-              <td><input type=”button” name=”two” value=”2" onclick=”calculator.display.value += ‘2’”></td>
-              <td><input type=”button” name=”three” value=”3" onclick=”calculator.display.value += ‘3’”></td>
-              <td><input type=”button” class=”operator” name=”plus” value=”+” onclick=”calculator.display.value += ‘+’”></td>
-           </tr>
-        </table>
-      </form>
-   </body>
-</html>
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="gp per xp gpxp max chinning diaries quests quest diary skill attack strength defence 2007 07 runescape rune scape old school 07scape Runescape RuneScape calculator calcusource Calcusourcen experience xp kingdom max massive multiplayer online role playing game MMORPg jagex">
+	<meta name="description" content="An Advanced calculation site for Old School RuneScape.">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/global.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/footer.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<title>Gp/Xp Calculator</title>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8081475584026991",
+    enable_page_level_ads: true
+  });
+</script>
+</head><link rel='shortcut icon' type='image/x-icon' href='/assets/img/favicon.ico'/>
+<nav class="navbar navbar-default" id="top">
+	<div class="nav-container">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<!-- For mobile -->
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/"><span style="color:#333">Calcu</span><span style="color:#594173">source</span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Calculators</a>
+						<ul class="dropdown-menu">
+							<li><a href="/calculators/bestherbs">Best Herbs to Farm</a></li>
+							<li><a href="/calculators/bestalchs">Best Items to Alch</a></li>
+							<!-- <li><a href="/calculators/chinning">Chinning</a></li> -->
+							<li><a href="/calculators/combatlevel">Combat Level</a></li>
+							<li><a href="/calculators/diaries">Diaries</a></li>
+							<li><a href="/calculators/gpxp">Gp/Xp</a></li>
+							<li><a href="/calculators/kingdom">Kingdom</a></li>
+							<!-- <li><a href="/calculators/max">Max</a></li> -->
+							<li><a href="/calculators/quests">Quests</a></li>
+							<li><a href="/calculators/storedxp">Stored Xp</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools</a>
+						<ul class="dropdown-menu">
+							<!-- <li><a href="/tools/cluescrolls">Clue Scrolls</a></li> -->
+							<li><a href="/tools/completionist">Completionst Help</a></li>
+							<!-- <li><a href="/tools/jmodtweets">Recent JMod Tweets</a></li> -->
+							<!-- <li><a href="/tools/timers">Timers</a></li> -->
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<!-- <li><a href="/donate">Donate</a></li> -->
+					<li><a href="/contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+	<body data-spy"scroll" data-target="#in-depth-max-breakdown">
+		<div class="main-container">
+			<div class="container-fluid main-content">
+				<div class="row">
+					<div class="col-lg-12 mobile-padding-0">
+						<div class="panel panel-default">
+							<div class="panel-heading panel-title" id="viewing-player-title">
+								<img src="/assets/img/items/Coins_10000.png">&nbsp;Gp/Xp Calculator
+								<span class="panel-heading-more-info" style="float: right"><button type="button" id="panel-heading-btn-guide" class="btn btn-default"><img src="/assets/img/skillicons/Guide_icon.png"></button></span>
+								<div class="row">
+									<div id="panel-more-info" class="col-lg-4 guide-not-showing no-pad text-center">
+										<div class="col-lg-12">
+											<div class="row">
+												<div class="col-lg-12" id="panel-more-info-body-title">Page Guide</div>
+												<div class="col-lg-12" id="panel-more-info-body">
+													<div class="row panel-more-info-body-row">
+														<div class="col-lg-2"><img src="/assets/img/skillicons/prayer.png"></div>
+														<div class="col-lg-10">The level requirement shown for prayer methods 
+															(specifically ensouled heads) is the Magic requirement needed to 
+															cast the respective reanimate spell.<br><br>Each ensouled head includes the cost of the runes needed to cast the respective spell.</div>
+													</div>
+													<div class="row panel-more-info-body-row">
+														<div class="col-lg-2"><img src="/assets/img/skillicons/magic.png"></div>
+														<div class="col-lg-10">Spells which change multiple items (Tan Leather &amp; Recharge Dragonstone)
+															assume the player is casting the spell on the max amount of items possible, i.e. if casting Recharge Dragonstone, it is assumed
+															the player has a Rune pouch with the required runes in it, and 27 Dragonstone items in their inventory.</div>
+													</div>
+													<div class="row panel-more-info-body-row">
+														<div class="col-lg-2"><img src="/assets/img/skillicons/hunter.png"></div>
+														<div class="col-lg-10">The xp shown for implings is that from catching the implings in the overworld (not Puro-Puro).
+															The level requirement is with a butterfly net rather than barehanded.</div>
+													</div>
+													<div class="row panel-more-info-body-row">
+														<div class="col-lg-2"><img src="/assets/img/skillicons/farming.png"></div>
+														<div class="col-lg-10">Calculations including a Calquat tree assume that the player is doing 5 trees and/or fruit trees and 1 Calquat tree, and thus when looking 
+															at the # of items needed, you really need 1/5 as many Calquat seeds as you do tree/fruit tree seeds.</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-lg-12" id="in-depth-max-breakdown">
+										<div class="col-lg-12 quick-jump-to-skill">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 comment">Click a skill to show gp/xp</div>
+											<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3" style="z-index: 10">
+												<div class="row">
+													<div class="col-lg-12 skill-row">
+														<span><img id="gpxp-attack-icon" class="skill-img inactive" src="/assets/img/skillicons/attack.png"></span>
+														<span><img id="gpxp-hitpoints-icon" class="skill-img inactive" src="/assets/img/skillicons/hitpoints.png"></span>
+														<span><img id="gpxp-mining-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/mining.png"></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12 skill-row">
+														<span><img id="gpxp-strength-icon" class="skill-img inactive" src="/assets/img/skillicons/strength.png"></span>
+														<span><img id="gpxp-agility-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/agility.png"></span>
+														<span><img id="gpxp-smithing-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/smithing.png"></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12 skill-row">
+														<span><img id="gpxp-defence-icon" class="skill-img inactive" src="/assets/img/skillicons/defence.png"></span>
+														<span><img id="gpxp-herblore-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/herblore.png"></span>
+														<span><img id="gpxp-fishing-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/fishing.png"></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12 skill-row">
+														<span><img id="gpxp-ranged-icon" class="skill-img inactive" src="/assets/img/skillicons/ranged.png"></span>
+														<span><img id="gpxp-thieving-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/thieving.png"></span>
+														<span><img id="gpxp-cooking-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/cooking.png"></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12 skill-row">
+														<span><img id="gpxp-prayer-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/prayer.png"></span>
+														<span><img id="gpxp-crafting-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/crafting.png"></span>
+														<span><img id="gpxp-firemaking-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/firemaking.png"></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12 skill-row">
+														<span><img id="gpxp-magic-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/magic.png"></span>
+														<span><img id="gpxp-fletching-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/fletching.png"></span>
+														<span><img id="gpxp-woodcutting-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/woodcutting.png"></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12 skill-row">
+														<span><img id="gpxp-runecrafting-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/runecrafting.png"></span>
+														<span><img id="gpxp-slayer-icon" class="skill-img inactive" src="/assets/img/skillicons/slayer.png"></span>
+														<span><img id="gpxp-farming-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/farming.png"></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12 skill-row">
+														<span><img id="gpxp-construction-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/construction.png"></span>
+														<span><img id="gpxp-hunter-icon" class="skill-img gpxp-skill-img" src="/assets/img/skillicons/hunter.png"></span>
+													</div>
+												</div>
+												<div class="row">
+													<div id="favorited-users" class="col-lg-12">
+														<div class="col-lg-12" style="border-bottom: 1px solid #3e3356;"><img src="/assets/img/skillicons/favorite.png">&nbsp;<span class="v-align-mid">Favorites</span></div>
+														<div class="col-lg-12 favorites-users-table no-pad">
+															<ul id="favorited-users-list" data-page="gpxp" class="no-bullet">
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-10">	
+												<div class="row">
+													<div class="col-lg-4 col-lg-offset-1 no-pad-left gpxp-xp-level-row">
+														<div class="input-group">
+															<input type="text" id="gpxp-username-field" class="form-control" placeholder="Username" maxlength="12">
+															<span id="gpxp-username-entered" class="input-group-addon">No name entered</span>
+															<span class="input-group-addon pointer" title="Favorite this user" id="gpxp-username-entered-favorite"><img src="/assets/img/skillicons/favorite.png"></span>
+															<span class="input-group-btn">
+																<input class="btn btn-default" type="button" id="gpxp-get-stats" value="Get Stats">
+															</span>
+														</div>
+													</div>
+													<div class="col-lg-7" id="gpxp-gamemode-row">
+														<!-- <span id="gpxp-other-gamemodes-text">Gamemodes</span> -->
+														<input type="radio" id="gpxp-gamemode-os" name="gpxp-gamemode" checked><span class="radio-pad" class="gpxp-gamemode-text">Regular</span>
+														<input type="radio" id="gpxp-gamemode-dmm" name="gpxp-gamemode"><span class="radio-pad" class="gpxp-gamemode-text">DMM</span>
+														<input type="radio" id="gpxp-gamemode-sdmm" name="gpxp-gamemode"><span class="radio-pad" class="gpxp-gamemode-text">Seasonal DMM</span>
+													</div>
+													<div class="col-lg-5 gpxp-data-displayed">
+														<span id="gpxp-displaying-data-for"></span>
+													</div>
+													<div class="col-lg-12 gpxp-xp-level-row">
+														<div class="col-lg-1">Current:</div>
+														<div class="col-lg-9 no-pad">
+															<input id="gpxp-current-xp" type="text" maxlength="9" value="0" tabindex="1">
+															<input id="gpxp-current-level" type="text" maxlength="3" value="1" tabindex="3">
+														</div>
+													</div>
+													<div class="col-lg-12 gpxp-xp-level-row">
+														<div class="col-lg-1">&nbsp;&nbsp;Target:</div>
+														<div class="col-lg-9 no-pad">
+															<input id="gpxp-target-xp" type="text" maxlength="9" value="83" tabindex="2">
+															<input id="gpxp-target-level" type="text" maxlength="3" value="2" tabindex="4">
+													    	
+													    </div>
+													    
+													</div>
+													<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="gpxp-supplies-sep-row">
+														<div class="col-lg-10 col-md-9 col-sm-9 col-xs-9">
+															<input type="checkbox" id="gpxp-include-supplies-checkbox"><span class="gpxp-include-supplies-text checkbox-pad">Include cost of house tabs/marrentils</span>
+												    		<span id="gpxp-include-pouches"><input type="checkbox" id="gpxp-include-pouch-sm"><span id="gpxp-include-pouch-sm-text">small</span><input type="checkbox" id="gpxp-include-pouch-md"><span id="gpxp-include-pouch-md-text">medium</span><input type="checkbox" id="gpxp-include-pouch-lg"><span id="gpxp-include-pouch-lg-text">large</span><input type="checkbox" id="gpxp-include-pouch-gt"><span id="gpxp-include-pouch-gt-text">giant</span></span>
+												    	</div>
+												    	<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+													    	<input type="checkbox" id="gpxp-use-osb-prices-checkbox" checked><span class="checkbox-pad" id="gpxp-use-osb-prices-text">Use OSB prices</span>
+													    </div>
+													</div>
+												</div>
+												<div class="col-lg-12" id="gpxp-table">
+													<div class="row method-row method-heading">
+														<div class="col-lg-3 col-xs-2 title">Item</div>
+														<div class="col-lg-1 col-xs-2 title no-pad-right text-center">Level<span class="caret" id="gpxp-sort-level-ascend"></span><span class="caret-up" id="gpxp-sort-level-descend"></span></div>
+														<div class="col-lg-1 col-xs-1 title no-pad-right text-center">XP<span class="caret" id="gpxp-sort-xp-ascend"></span><span class="caret-up" id="gpxp-sort-xp-descend"></span></div>
+														<div class="col-lg-1 col-xs-1 title no-pad-right text-center">GP<span class="caret" id="gpxp-sort-gp-ascend"></span><span class="caret-up" id="gpxp-sort-gp-descend"></span></div>
+														<div class="col-lg-2 col-xs-2 title no-pad-right text-center">GP/XP<span class="caret" id="gpxp-sort-gpxp-ascend"></span><span class="caret-up" id="gpxp-sort-gpxp-descend"></span></div>
+														<div class="col-lg-2 col-xs-2 title no-pad-right text-center"># of items<span class="caret" id="gpxp-sort-number-ascend"></span><span class="caret-up" id="gpxp-sort-number-descend"></span></div>
+														<div class="col-lg-2 col-xs-2 title no-pad-right text-center">Outcome<span class="caret" id="gpxp-sort-outcome-ascend"></span><span class="caret-up" id="gpxp-sort-outcome-descend"></span></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="col-lg-2 col-lg-offset-10 col-md-2 col-md-offset-10 col-sm-2 col-sm-offset-10 col-xs-2 col-xs-offset-10">
+											<a href="#top" class="back-to-top">Back to top</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/assets/js/global.js?v=5"></script>
+		<script src="/assets/js/gpxp.js?v=18"></script>
+	</body>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-71364606-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<div class="footer">
+	<ul>
+		<a href="/changelog"><li class="footer-item">Change log</li></a>
+		<a href="/contact"><li class="footer-item">Contact</li></a>
+		<li><a href="/"><img src="/assets/img/Untitled5.png" style="width:40px;display:inline-block;"></a></li>
+	</ul>
+	<div class="col-lg-12">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ccs ad4 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:90px"
+     data-ad-client="ca-pub-8081475584026991"
+     data-ad-slot="7826748311"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ccs ad6 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:90px"
+     data-ad-client="ca-pub-8081475584026991"
+     data-ad-slot="4759932979"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ccs ad5 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:90px"
+     data-ad-client="ca-pub-8081475584026991"
+     data-ad-slot="2845760664"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div></html>
